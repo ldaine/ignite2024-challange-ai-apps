@@ -1,4 +1,4 @@
-# Ignite 2024 Challange - AI Apps
+# Ignite Edition: Build AI apps with Microsoft Azure | Solution
 
 For solution please see the `solution.ps1` file with all commands to create required resources. 
 
