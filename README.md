@@ -8,4 +8,8 @@ The `my-mslearn-cloud-native-apps-express` is an adjusted clone of https://githu
 
 ## Create and consume Azure AI services
 
-Solution: `solution-1-ai-services.ps1`.
+Solution: `solution-2-use-ai-services.ps1`.
+
+## Monitor Azure AI services
+
+Solution: `solution-3-monitor-ai-services.ps1`.
