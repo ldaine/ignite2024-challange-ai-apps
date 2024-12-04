@@ -96,12 +96,10 @@ $ZONEID=az network dns zone show --resource-group $RESOURCEGROUP --name $ZONENAM
 # ZONEID=$(az network dns zone show --resource-group $RESOURCEGROUP --name $ZONENAME --query "id" --output tsv)
 az aks approuting zone add --resource-group $RESOURCEGROUP --name $CLUSTERNAME --ids=${ZONEID} --attach-zones
 
-
 # update nameservers in your domain name provider with NS values from recordsets
 # check the configuration
 nslookup -type=SOA $ZONENAME 
 
-# 
 $TARGETHOSTNAME="cna-express.ligadaine.pro"
 
 # update ingress.yaml with yout custom domain
@@ -129,9 +127,7 @@ spec:
 
 kubectl apply -f ./ingress.yaml
 kubectl get ingress cna-express
-
-
-# https://learn.microsoft.com/en-us/azure/application-gateway/tutorial-ingress-controller-add-on-existing
+# It takes a while to deploy the changes (although the command is exxecuted). The access to the application though host is available after couple of minutes. 
 
 #***********************************************
 # WEBAPPP
