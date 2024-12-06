@@ -27,3 +27,7 @@ git clone https://github.com/MicrosoftLearning/mslearn-ai-services
 # CLEANUP
 az group delete --name $RESOURCEGROUP -y
 
+# permanently delete deleted accounts: 
+$deletedAccounts = az cognitiveservices account list-deleted
+$deletedAccounts | ConvertFrom-Json | ForEach-Object {az resource delete --ids $_.id}
+
