@@ -12,7 +12,9 @@ $MODELNAME="gpt-35-turbo-16k"
 $MODELVERSION="0613"
 
 #**********************************************************
-# Exercise - Use Azure AI services
+# Exercise - Get started with Azure OpenAI service
+
+Exercise: https://microsoftlearning.github.io/mslearn-openai/Instructions/Exercises/01-get-started-azure-openai.html
 
 az group create --name $RESOURCEGROUP --location $LOCATION
 
