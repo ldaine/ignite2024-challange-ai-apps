@@ -18,8 +18,6 @@ $RESOURCEGROUP="ld-learn-mongodb-ai-rg-$LOCATION"
 $MONGODB_CLUSTER_NAME="ld-learn-mongodb-cluster"
 $MONGODB_CLUSTER_USERNAME="cosmosClusterAdmin"
 $MONGODB_CLUSTER_PASSWORD="eS9soB8BYJlMQuln"
-$MONGODB_CLUSTER_DATABASE_NAME="ld-learn-mongodb-db"
-$MONGODB_CLUSTER_CONTAINER_NAME="ld-learn-mongodb-db-container"
 
 # set your default subscription
 # get your subscriptions 
@@ -34,6 +32,7 @@ az account set --subscription $YOUR_SUBSCRIPTION_ID
 az group create --name $RESOURCEGROUP --location $LOCATION
 az configure --defaults group=$RESOURCEGROUP
 
+# create mongodb cluster
 $MONGODB_CLUSTER_RESOURCE = az cosmosdb mongocluster create --location $LOCATION --cluster-name $MONGODB_CLUSTER_NAME --administrator-login $MONGODB_CLUSTER_USERNAME --administrator-login-password $MONGODB_CLUSTER_PASSWORD  --server-version 6.0 --shard-node-tier "Free" --shard-node-count 1 --shard-node-ha false --shard-node-disk-size-gb 32
 $MONGODB_CLUSTER_RESOURCE_CONVERTED = ConvertFrom-JSON -InputObject "$MONGODB_CLUSTER_RESOURCE"
 $MONGODB_CONNECTION_STRING_TEMPLATE = $MONGODB_CLUSTER_RESOURCE_CONVERTED.properties.connectionString
@@ -58,7 +57,7 @@ $MONGODB_CONNECTION_STRING = $MONGODB_CONNECTION_STRING.replace('<password>',$MO
 mongosh $MONGODB_CONNECTION_STRING
 
 #**********************************************************
-# Add Database, Collection adn sample data
+# Add Database, Collection and sample data
 #**********************************************************
 
 # Execute following commands in shell (locally in mongosh shell): 
